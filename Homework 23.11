@@ -1,0 +1,21 @@
+В рамках БД 'песочница' напишите след/запросы:
+
+
+1. Вывести ко-во заказов, которое компания Speedy Express доставила в Brazil
+
+SELECT * 
+FROM Orders
+JOIN Customers ON Orders.CustomerID = Customers.CustomerID
+WHERE ShipperID = 1
+AND
+Customers.Country = 'Brazil'
+
+
+
+2. Вывести среднюю стоимость напитка (Beverages) из Brazil
+
+
+
+
+3. Расчитать З/П сотрудника с фамилией Davolio (проекция: зп, фамилиясотрудника)
+
