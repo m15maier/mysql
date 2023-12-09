@@ -28,3 +28,8 @@ Suppliers.Country = 'Brazil'
 
 3. Расчитать З/П сотрудника с фамилией Davolio (проекция: зп, фамилиясотрудника)
 
+SELECT * 
+FROM Employees
+
+WHERE LastName = 'Davolio'
+
