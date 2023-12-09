@@ -1,0 +1,51 @@
+В рамках БД "онлайн-магазин" напишите след/запросы:
+
+
+1. Вывести название и стоимость в USD одного самого дорогого товара
+SELECT 
+ProductName, Price AS Price_EUR
+FROM Products
+ORDER BY Price DESC
+LIMIT 1;
+
+
+
+2. Вывести два самых дешевых товара из категории 1
+SELECT
+ProductName, Price
+FROM Products
+WHERE CategoryID = 1
+ORDER BY Price
+LIMIT 2
+
+
+
+3. Удалить товары с ценой менее 50 EUR
+SELECT
+Price * 1.05 AS Price_USD
+FROM Products
+WHERE Price < 50
+
+
+
+4. Очистить поле ContactName у всех клиентов не из China
+UPDATE Customers
+SET CustomerName = NULL
+WHERE country <> 'China'
+
+
+
+5. Применить ко всем товарам постоянную скидку в 15%
+
+6. Вывести товар, который находится на третьем месте среди самых дорогих
+
+
+
+
+6. UPDATE products
+   SET price = price * 0.85;
+
+7. SELECT name, price
+   FROM products
+   ORDER BY price DESC
+   LIMIT 1 OFFSET 2;
