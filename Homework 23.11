@@ -14,6 +14,15 @@ Customers.Country = 'Brazil'
 
 2. Вывести среднюю стоимость напитка (Beverages) из Brazil
 
+SELECT AVG(Price) 
+FROM Products
+JOIN Suppliers ON Suppliers.Country = Suppliers.Country
+
+WHERE
+CategoryID = '1'
+AND 
+Suppliers.Country = 'Brazil'
+
 
 
 
