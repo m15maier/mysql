@@ -5,8 +5,11 @@
 
 SELECT * 
 FROM Orders
+
 JOIN Customers ON Orders.CustomerID = Customers.CustomerID
-WHERE ShipperID = 1
+JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID
+
+WHERE Shippers.ShipperName = 'Speedy Express'
 AND
 Customers.Country = 'Brazil'
 
@@ -28,8 +31,11 @@ Suppliers.Country = 'Brazil'
 
 3. Расчитать З/П сотрудника с фамилией Davolio (проекция: зп, фамилиясотрудника)
 
-SELECT * 
-FROM Employees
+SELECT 
+SUM(Products.Price * OrderDetails.Quantity) AS ZP
+FROM OrderDetails
 
-WHERE LastName = 'Davolio'
+JOIN Products ON OrderDetails.ProductID = Products.ProductID
+
+WHERE Orders.EmployeeID = '1'
 
