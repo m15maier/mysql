@@ -3,7 +3,8 @@
 
 1. Вывести ко-во заказов, которое компания Speedy Express доставила в Brazil
 
-SELECT * 
+SELECT 
+COUNT(*) AS total
 FROM Orders
 
 JOIN Customers ON Orders.CustomerID = Customers.CustomerID
