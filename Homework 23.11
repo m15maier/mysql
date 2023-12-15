@@ -18,12 +18,14 @@ Customers.Country = 'Brazil'
 
 2. Вывести среднюю стоимость напитка (Beverages) из Brazil
 
-SELECT AVG(Price) 
+SELECT AVG(Price) AS Price
 FROM Products
-JOIN Suppliers ON Suppliers.Country = Suppliers.Country
+
+JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID
+JOIN Categories ON Products.CategoryID = Categories.CategoryID
 
 WHERE
-CategoryID = '1'
+Categories.CategoryName = 'Beverages'
 AND 
 Suppliers.Country = 'Brazil'
 
@@ -33,10 +35,13 @@ Suppliers.Country = 'Brazil'
 3. Расчитать З/П сотрудника с фамилией Davolio (проекция: зп, фамилиясотрудника)
 
 SELECT 
-SUM(Products.Price * OrderDetails.Quantity) AS ZP
-FROM OrderDetails
+SUM(Products.Price * OrderDetails.Quantity * .05) AS ZP,
+Employees.LastName
+FROM Orders
 
+JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
+JOIN OrderDetails ON Orders.OrderID = OrderDetails.OrderID
 JOIN Products ON OrderDetails.ProductID = Products.ProductID
 
-WHERE Orders.EmployeeID = '1'
+WHERE Employees.LastName = 'Davolio';
 
