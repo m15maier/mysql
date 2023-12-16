@@ -4,6 +4,7 @@
 1. Вывести мин/стоимость товаров для каждой категории
 (проекция: названиекатегории, минстоимость_товара)
 
+
 SELECT ProductName,
 COUNT(*) AS min_price
 FROM Products
@@ -14,12 +15,24 @@ ORDER BY min_price ASC
 
 
 
+
 2. Вывести ТОП-3 стран по количеству доставленных заказов
 
 
+SELECT Customers.Country,
+COUNT(*) AS quantity
+FROM Customers
 
+GROUP BY Customers.Country
+
+ORDER BY quantity DESC
+LIMIT 3
 
 
 
 
 3. Вывести ко-во заказов у каждого менеджера (фамилияменеджера, ко-возаказов)
+
+
+
+
