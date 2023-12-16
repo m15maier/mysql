@@ -5,13 +5,16 @@
 (проекция: названиекатегории, минстоимость_товара)
 
 
-SELECT ProductName,
+SELECT CategoryName,
 COUNT(*) AS min_price
 FROM Products
 
-GROUP BY Products.Price
+JOIN Categories ON Categories.CategoryName = Categories.CategoryName
+
+GROUP BY Categories.CategoryName
 
 ORDER BY min_price ASC
+
 
 
 
@@ -34,5 +37,14 @@ LIMIT 3
 3. Вывести ко-во заказов у каждого менеджера (фамилияменеджера, ко-возаказов)
 
 
+SELECT OrderID,
+Employees.LastName,
+COUNT(*) AS quantity
+FROM Orders
+
+JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
+
+GROUP BY Employees.LastName
+ORDER BY quantity DESC
 
 
