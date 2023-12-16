@@ -10,9 +10,13 @@ FROM Products
 
 GROUP BY Products.Price
 
+ORDER BY min_price ASC
+
 
 
 2. Вывести ТОП-3 стран по количеству доставленных заказов
+
+
 
 
 
